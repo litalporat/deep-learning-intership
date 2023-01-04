@@ -7,6 +7,8 @@ each file is neural network assignment, we have 2 multiclassification models.
 the coffee beans classification network is convolutional model and the Fashion MMIST is fully connected network.
 
 ## Getting Started
+1.Fashion MMist classification
+2.Coffee beans classification
 
 ### Dependencies
 
@@ -71,3 +73,59 @@ The classification report is also very similar to the models above.
 
 In the single prediction section, we ran one image pixel matrix as a batch in every model.
 Each model returns a 1 x 10 vector in accordance with 10 classes. the model prediction for each class is valued as 1 in the matching index.
+
+# Coffee Beans 
+# Introduction:
+Usually people distinguish between coffee Beans by their colors.
+We are aiming to do so with deep learning neural network.
+This is classic multi class classification with computer vision (the data contains a lot of coffee beans images.)
+
+## Data
+Our data consist more than 1000 images of coffee beans, which are labeled by the coffee beans color.
+There are four different colors in our data:'Dark', 'Green' 'Light' and 'Medium'.
+
+In the data preprocessing section we divided the train and test images in accordance to their labels.
+
+## Design
+Our approach is to build a deep convolutional neural network and train a model that is able to classify the different types of coffee beans. Hence, we chose standard convolutional architecture for the network with one hidden layer.
+In addition we used "relu" activation between the layers and "Soft max" activation before the output layer.
+The loss function we chose is cross- entropy log loss for multi class classification along with gradient descent ("adam") optimizer. 
+
+## Base Model
+The base model we built is inspired by keras library convolutional neural network" docs, due to we have small amount of data, we didn't need any complicated system for the classification.
+We chose the minimum amount of filter in our convolution layer, 32 filters, pooling of 2x2 pixels and stride of 3 paces each.
+Also the hidden layer we filled with 128 neurons and for the activation between this layer to the convolution layer is "relu".
+
+after flatting the results we connected all the neurons to fully connected network so we can classify between all the classes.
+
+Hence, our base model got us already amazing results in 4 epochs only, 99 percent accuracy.
+
+# First Experiment
+In the 1st experiment we thought what can make our results even better than 99 percent accuracy? 
+To answer that we changed the network architecture by adding one more convolutional layer.
+Again, chose the minimum amount of filters, but now for our two convolutional layers.
+The first layer consist 32 filters and 64 filters in the second layer.
+The activation we chose for the second convolution layer is "Softmax".
+Also we chose pooling of 2x2 pixels and stride of 5 paces each.
+
+these changes did lowered our accuracy on the validation set to 93 percent on 4 epochs.
+
+this result got us thinking, doesn't adding more layers improve the network quality?
+Due to this results we understood that for this basic problem a more complex model is not the best answer.
+
+## Second Experiment
+
+In attempt to get 100 percent accuracy for the validation set we wanted to try, what if the answer is in the hyper-parameters we chose?
+
+Hence, we decide to add more epochs for our train, 4 epochs is really small amount and with any other problem it's not enough repetitions to make a change.
+
+due to, we changed the epochs amount to 10 epochs.
+This change brought us to 100 percent accuracy on the validation set, this is incredible result!!!
+
+## Best model Results and Metrics
+To calculate our models performances we used accuracy metric.
+Our best model is the second experiment, adding epochs.
+
+To test our network we built prediction section, in it we import one random coffee bean image and ran it in all three models weights.
+The results were almost the same between all models and got the correct label for the image.
+
