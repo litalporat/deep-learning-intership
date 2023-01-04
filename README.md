@@ -1,4 +1,4 @@
-# Overview of our deep learning internship assignment
+# Overview of our deep learning internship assignments:
 
 
 ## Description
@@ -76,7 +76,7 @@ The classification report is also very similar to the models above.
 In the single prediction section, we ran one image pixel matrix as a batch in every model.
 Each model returns a 1 x 10 vector in accordance with 10 classes. the model prediction for each class is valued as 1 in the matching index.
 
-# Coffee Beans 
+# Coffee Beans :
 ### Introduction:
 Usually people distinguish between coffee Beans by their colors.
 We are aiming to do so with deep learning neural network.
